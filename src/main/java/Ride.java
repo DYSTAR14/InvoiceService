@@ -2,10 +2,13 @@ public class Ride {
 
     private final double distance;
     private final int time;
+    private final CabRide cabRide;
 
-    public Ride(double distance, int time) {
+
+    public Ride(double distance, int time, CabRide cabRide) {
         this.distance = distance;
         this.time = time;
+        this.cabRide = cabRide;
     }
 
     public int getTime() {
@@ -14,5 +17,9 @@ public class Ride {
 
     public double getDistance() {
         return distance;
+    }
+
+    public CabRide getCabRide() {
+        return cabRide;
     }
 }
