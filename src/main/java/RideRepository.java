@@ -9,44 +9,39 @@ public class RideRepository {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public static Map<Integer,List<Ride>> rideRepositoryList = new HashMap<>();
     List<Ride> list;
     Ride ride;
 
-
     public void dataEntryOfCabRide(){
         ride = new Ride(2.0, 5, CabRide.NORMAL );
-        list = new ArrayList<Ride>();
+        list = new ArrayList<>();
         list.add(ride);
         rideRepositoryList.put(11,list);
 
-        ride = new Ride(5.0, 4, CabRide.PREMIMUM);
-        list = new ArrayList<Ride>();
+        ride = new Ride(5.0, 4, CabRide.PREMIUM);
+        list = new ArrayList<>();
         list.add(ride);
         rideRepositoryList.put(12,list);
 
-        ride = new Ride(0.1, 1, CabRide.PREMIMUM);
-        list = new ArrayList<Ride>();
+        ride = new Ride(0.1, 1, CabRide.PREMIUM);
+        list = new ArrayList<>();
         list = rideRepositoryList.get(11);
         list.add(ride);
         rideRepositoryList.put(11,list);
 
         ride = new Ride(2.0, 8, CabRide.NORMAL);
-        list = new ArrayList<Ride>();
+        list = new ArrayList<>();
         list.add(ride);
         rideRepositoryList.put(13,list);
 
-        ride = new Ride(8.0, 6, CabRide.PREMIMUM);
-        list = new ArrayList<Ride>();
+        ride = new Ride(8.0, 6, CabRide.PREMIUM);
+        list = new ArrayList<>();
         list.add(ride);
         rideRepositoryList.put(14,list);
 
         ride = new Ride(7.0, 8, CabRide.NORMAL);
-        list = new ArrayList<Ride>();
+        list = new ArrayList<>();
         list = rideRepositoryList.get(13);
         list.add(ride);
         rideRepositoryList.put(13,list);

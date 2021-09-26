@@ -1,6 +1,6 @@
 public enum CabRide {
     NORMAL(10,1,5),
-    PREMIMUM(15,2,20);
+    PREMIUM(15,2,20);
 
     public double getCostPerKm() {
         return costPerKm;
