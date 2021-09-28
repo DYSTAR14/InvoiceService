@@ -3,24 +3,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-//import org.mockito.junit.MockitoJUnit;
-//import org.mockito.junit.MockitoRule;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
+//@RunWith(MockitoJUnitRunner.class)
 class InvoiceServiceTest {
-
-//    @Rule
-//    public MockitoRule rule = MockitoJUnit.rule();
 
     @Mock
     RideRepository rideRepository;
@@ -30,8 +21,8 @@ class InvoiceServiceTest {
 
     @BeforeEach
     public void setUp() {
-        invoiceService = new InvoiceService();
-        rideRepository = new RideRepository();
+//        invoiceService = new InvoiceService();
+//        rideRepository = new RideRepository();
     }
 
     @Test
@@ -66,22 +57,11 @@ class InvoiceServiceTest {
         Ride[] rides = {new Ride(2.0, 5, CabRide.NORMAL),
                         new Ride(0.1, 1, CabRide.PREMIUM),
         };
-//        Map<String, ArrayList<Ride>> list = new HashMap<>();
-//        ArrayList<Ride> rideList = new ArrayList<>(Arrays.asList(rides));
-//        list.put(userId,rideList);
-//        list.get(userId).toArray(new Ride[0]);
-//        list.get(userId).toArray(new Ride[0]);
-
-//        RideRepository rideRepository = new RideRepository();
-//        invoiceService.setRideRepository(rideRepository);
-        InvoiceSummary summary = new InvoiceSummary(2, 45.0);
-        when(invoiceService.addRides(userId,rides)).thenReturn(summary);
-        invoiceService.addRides(userId,rides);
-//        when(rideRepository.getRides(userId)).thenReturn(rides);
-//        when(invoiceService.getInvoiceSummary(userId)).thenReturn(new InvoiceSummary(2, 45.0));
-//        InvoiceSummary summary = invoiceService.getInvoiceSummary(userId);
+        when(rideRepository.addRides(userId,rides)).thenReturn(rides);
+//        InvoiceService invoiceService = new InvoiceService(rideRepository);
+        InvoiceSummary summary = invoiceService.addRides(userId,rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 45.0);
-        Assertions.assertEquals(expectedInvoiceSummary.getTotalFare(), summary.getTotalFare());
+        Assertions.assertEquals(expectedInvoiceSummary, summary);
     }
 
     @Test
