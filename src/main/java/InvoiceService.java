@@ -5,9 +5,9 @@ public class InvoiceService {
 //    InvoiceService(){
 //        this.rideRepository = new RideRepository();
 //    }
-    public void setRideRepository(RideRepository rideRepository){
-        this.rideRepository = rideRepository;
-    }
+//    public void setRideRepository(RideRepository rideRepository){
+//        this.rideRepository = rideRepository;
+//    }
 
     public double calculateFare(Ride ride) {
         return ride.getCabRide().calculateCostOfCabRide(ride);
@@ -21,11 +21,12 @@ public class InvoiceService {
         return new InvoiceSummary(rides.length, totalFare);
     }
 
-    public void addRides(String userId, Ride[] rides) {
+    public InvoiceSummary addRides(String userId, Ride[] rides) {
         rideRepository.addRides(userId,rides);
-    }
-
-    public InvoiceSummary getInvoiceSummary(String userId) {
         return this.calculateFare(rideRepository.getRides(userId));
     }
+
+//    public InvoiceSummary getInvoiceSummary(String userId) {
+//        return this.calculateFare(rideRepository.getRides(userId));
+//    }
 }

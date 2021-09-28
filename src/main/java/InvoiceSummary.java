@@ -3,6 +3,18 @@ public class InvoiceSummary {
     private final double totalFare;
     private final double averageFare;
 
+    public double getAverageFare() {
+        return averageFare;
+    }
+
+    public int getNumOfRide() {
+        return numOfRide;
+    }
+
+    public double getTotalFare() {
+        return totalFare;
+    }
+
     public InvoiceSummary(int numOfRide, double totalFare) {
         this.numOfRide = numOfRide;
         this.totalFare = totalFare;
